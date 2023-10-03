@@ -38,21 +38,32 @@ const User = () => {
     }
   };
 
+  const user = [
+    {
+      user: 1,
+    },
+    {
+      user: 2,
+    },
+    {
+      user: 3,
+    },
+    {
+      user: 100,
+    },
+  ];
   return (
     <>
       <Box className="button">
-        <Button variant="contained" onClick={() => handleButtonClick(1)}>
-          1
-        </Button>
-        <Button variant="contained" onClick={() => handleButtonClick(2)}>
-          2
-        </Button>
-        <Button variant="contained" onClick={() => handleButtonClick(3)}>
-          3
-        </Button>
-        <Button variant="contained" onClick={() => handleButtonClick(100)}>
-          100
-        </Button>
+        {user.map((id) => (
+          <Button
+            key={id.user}
+            variant="contained"
+            onClick={() => handleButtonClick(id.user)}
+          >
+            {id.user}
+          </Button>
+        ))}
       </Box>
 
       <Box className="user-detail">
